@@ -18,19 +18,29 @@ namespace Basic
             InitializeComponent();
         }
 
-        private decimal M1 { get; set; }
+        private decimal M1 { get; set; }//Left side value
 
-        private decimal M2 { get; set; }
+        private decimal M2 { get; set; }//Right side value
 
 
-        private bool _m1Set = false;
-        private bool _m2Set = false;
-        private bool _m1M2Set = false;
+        private bool _m1Set = false;//is m1 set
+        private bool _m2Set = false;//is m2 set
+        private bool _isOperator = false;//to check if operator is pressed again and again
+        private bool _isNumber = false;
 
         private string _opSet = "";
 
         private void OpClick(string mathOperator)
         {
+            _isNumber = false;
+            if (_isOperator)
+            {
+                return;
+            }
+            else
+            {
+                _isOperator = true;
+            }
             decimal result = 0;
             if (_m1Set==false)
             {
@@ -45,7 +55,6 @@ namespace Basic
                 Display_lbl.Text = "0";
                 _m2Set = false;
                 M2 = 0;
-                _m1M2Set = false;
             }
             else if (_m2Set==false)
             {
@@ -76,7 +85,7 @@ namespace Basic
                     M2 = 0;
                     _m1Set = false;
                     _m2Set = false;
-                    _m1M2Set = false;
+                    _isOperator = false;
                 }
                 else
                 {
@@ -85,7 +94,6 @@ namespace Basic
                     _m1Set = true;
                     _opSet = mathOperator;
                     _m2Set = true;
-                    _m1M2Set = true;
                 }                
             }
             else
@@ -117,7 +125,7 @@ namespace Basic
                     M2 = 0;
                     _m1Set = false;
                     _m2Set = false;
-                    _m1M2Set = false;
+                    _isOperator = false;
                 }
                 else
                 {
@@ -127,13 +135,13 @@ namespace Basic
                     _opSet = mathOperator;
                     M2 = 0;
                     _m2Set = true;
-                    _m1M2Set = true;
                 }
             }
         }
 
         private void NumClick(int num)
         {
+            _isOperator = false;
             if (_m1Set==false)
             {
                 mem_lbl.Text = "";
@@ -141,9 +149,12 @@ namespace Basic
             if (_m1Set && _m2Set)
             {
                 M2 = Convert.ToDecimal(Display_lbl.Text);
-                Display_lbl.Text = "0";
+                if (_isNumber==false)
+                {
+                    Display_lbl.Text = "0";
+                }                
             }
-
+            _isNumber = true;
             string dispVal = Display_lbl.Text;
             decimal result = 0;
             if (dispVal.Split('.').Length>0)
@@ -247,7 +258,7 @@ namespace Basic
             M2 = 0;
             _m1Set = false;
             _m2Set = false;
-            _m1M2Set = false;
+            _isOperator = false;
         }
 
         private void Back_btn_Click(object sender, EventArgs e)
