@@ -44,6 +44,9 @@
             this.multiply_btn = new System.Windows.Forms.Button();
             this.div_btn = new System.Windows.Forms.Button();
             this.equal_btn = new System.Windows.Forms.Button();
+            this.mem_lbl = new System.Windows.Forms.Label();
+            this.C_btn = new System.Windows.Forms.Button();
+            this.Back_btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Display_lbl
@@ -207,11 +210,42 @@
             this.equal_btn.UseVisualStyleBackColor = true;
             this.equal_btn.Click += new System.EventHandler(this.equal_btn_Click);
             // 
+            // mem_lbl
+            // 
+            this.mem_lbl.AutoSize = true;
+            this.mem_lbl.Location = new System.Drawing.Point(53, 9);
+            this.mem_lbl.Name = "mem_lbl";
+            this.mem_lbl.Size = new System.Drawing.Size(0, 20);
+            this.mem_lbl.TabIndex = 16;
+            // 
+            // C_btn
+            // 
+            this.C_btn.Location = new System.Drawing.Point(446, 387);
+            this.C_btn.Name = "C_btn";
+            this.C_btn.Size = new System.Drawing.Size(75, 51);
+            this.C_btn.TabIndex = 17;
+            this.C_btn.Text = "C";
+            this.C_btn.UseVisualStyleBackColor = true;
+            this.C_btn.Click += new System.EventHandler(this.C_btn_Click);
+            // 
+            // Back_btn
+            // 
+            this.Back_btn.Location = new System.Drawing.Point(550, 387);
+            this.Back_btn.Name = "Back_btn";
+            this.Back_btn.Size = new System.Drawing.Size(75, 51);
+            this.Back_btn.TabIndex = 18;
+            this.Back_btn.Text = "DEL";
+            this.Back_btn.UseVisualStyleBackColor = true;
+            this.Back_btn.Click += new System.EventHandler(this.Back_btn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Back_btn);
+            this.Controls.Add(this.C_btn);
+            this.Controls.Add(this.mem_lbl);
             this.Controls.Add(this.equal_btn);
             this.Controls.Add(this.div_btn);
             this.Controls.Add(this.multiply_btn);
@@ -231,6 +265,7 @@
             this.Name = "Form1";
             this.Text = "Calculator";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -252,6 +287,9 @@
         private System.Windows.Forms.Button multiply_btn;
         private System.Windows.Forms.Button div_btn;
         private System.Windows.Forms.Button equal_btn;
+        private System.Windows.Forms.Label mem_lbl;
+        private System.Windows.Forms.Button C_btn;
+        private System.Windows.Forms.Button Back_btn;
     }
 }
 
