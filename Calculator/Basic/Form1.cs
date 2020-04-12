@@ -26,9 +26,9 @@ namespace Basic
         private bool _m1Set = false;//is m1 set
         private bool _m2Set = false;//is m2 set
         private bool _isOperator = false;//to check if operator is pressed again and again
-        private bool _isNumber = false;
+        private bool _isNumber = false;//to check if previously number was pressed
 
-        private string _opSet = "";
+        private string _opSet = "";//to store the previous operator
 
         private void OpClick(string mathOperator)
         {
